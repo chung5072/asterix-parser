@@ -12,6 +12,12 @@
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 
 ---
+### 설치 방법
+```
+npm install asterix-validator
+npm install asterix-parser
+```
+---
 ### 사용 예시
 ```
 parse("확인하고_싶은_데이터_문자열");
