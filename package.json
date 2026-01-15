@@ -1,0 +1,43 @@
+{
+  "name": "asterix-parser",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chung5072/asterix-validator"
+  },
+  "description": "asterix-validator를 활용한 Asterix 데이터 파싱 모듈",
+  "main": "./build/src/main/app.js",
+  "types": "./build/src/main/app.d.ts",
+    "files": [
+    "build",
+    "jest.config.js",
+    "LICENSE",
+    "package-lock.json",
+    "package.json",
+    "README.md",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "start": "nodemon -e ts --ignore build/ --exec \"npm run build && node ./build/src/main/app.js\""
+  },
+  "keywords": [
+    "asterix",
+    "asterix-parser"
+  ],
+  "author": "chung5072",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.0.3",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "asterix-validator": "^1.0.9"
+  }
+}
