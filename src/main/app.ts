@@ -1,7 +1,9 @@
 import { inputData } from 'asterix-validator';
 import { getFieldSpec } from './util/preprocess';
 import { cat021VarLen } from './util/varlen/cat021';
+import { cat062VarLen } from './util/varlen/cat062';
 import { Record, cat021Process } from './util/process/cat021';
+import { cat062Process } from './util/process/cat062';
 
 /**
  * Asterix 데이터 파싱
@@ -43,6 +45,10 @@ const parse = (input: string) => {
                         diLength = cat021VarLen(bitArr, currentPos, dataItem);
                         break;
                     }
+                    case 62: {
+                        diLength = cat062VarLen(bitArr, currentPos, dataItem);
+                        break;
+                    }
                     default:
                         diLength = 0;
                         break;
@@ -54,6 +60,10 @@ const parse = (input: string) => {
             switch (category) {
                 case 21: {
                     cat021Process(record, bitArr, currentPos, dataItem, diLength);
+                    break;
+                }
+                case 62: {
+                    cat062Process(record, bitArr, currentPos, dataItem, diLength);
                     break;
                 }
                 default:

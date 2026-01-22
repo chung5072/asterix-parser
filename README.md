@@ -5,6 +5,7 @@
 - 모듈로 확인할 수 있는 내용
     - 배열 내의 객체 형태로 Asterix 데이터 파싱 결과. 
     - 현재 구현된 내용: Category 021 (Edition Number: 2.5)
+    - 현재 구현된 내용: Category 062 (Edition Number: 1.18)
 
 **기술 스택**
 
@@ -40,3 +41,4 @@ console.log(parse("3E0006800102"));
 ---
 ### 참고 링크
 [Asterix CAT021](https://www.eurocontrol.int/publication/cat021-eurocontrol-specification-surveillance-data-exchange-asterix-part-12-category-21)
+[Asterix CAT062](https://www.eurocontrol.int/publication/cat062-eurocontrol-specification-surveillance-data-exchange-asterix-part-9-category-062)

@@ -1,4 +1,5 @@
 import { CAT021_UAP } from "../data/uap/cat021";
+import { CAT062_UAP } from "../data/uap/cat062";
 
 type FieldSpec = {
     [dataItem: string]: number;
@@ -30,11 +31,26 @@ const getFieldSpec = (category: number, bitArr: Uint8Array, pos: number) => {
             // 열 번호
             const frn = 7 - bit + 1;
 
-            if (category === 21) {
-                const dataItem = CAT021_UAP[block][frn].dataItem;
-                const length = CAT021_UAP[block][frn].length;
+            let dataItem: string;
+            let length: number;
 
-                fieldSpec[dataItem] = length;
+            switch (category) {
+                case 21:
+                    dataItem = CAT021_UAP[block][frn].dataItem;
+                    length = CAT021_UAP[block][frn].length;
+
+                    fieldSpec[dataItem] = length;
+                    break;
+
+                case 62: 
+                    dataItem = CAT062_UAP[block][frn].dataItem;
+                    length = CAT062_UAP[block][frn].length;
+
+                    fieldSpec[dataItem] = length;
+                    break;
+            
+                default:
+                    break;
             }
         }
 

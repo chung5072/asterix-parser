@@ -603,9 +603,9 @@ const di071 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet2 = bitArr[currentPos++];
     const octet3 = bitArr[currentPos++];
 
-    const tapOctet = octet1 << (8 * 2) | octet2 << (8) | octet3;
+    const tapOctet = (octet1 << (8 * 2)) | (octet2 << (8)) | (octet3);
 
-    record["021_071_Time of Applicability of Position"] = tapOctet / 128;
+    record["021_071_Time of Applicability of Position"] = (tapOctet / 128);
 }
 
 /**
@@ -622,7 +622,7 @@ const di072 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet2 = bitArr[currentPos++];
     const octet3 = bitArr[currentPos++];
 
-    const tavOctet = octet1 << (8 * 2) | octet2 << (8) | octet3;
+    const tavOctet = (octet1 << (8 * 2)) | (octet2 << (8)) | (octet3);
 
     record["021_072_Time of Applicability of Velocity"] = tavOctet / 128;
 }
@@ -641,7 +641,7 @@ const di073 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet2 = bitArr[currentPos++];
     const octet3 = bitArr[currentPos++];
 
-    const tmrpOctet = octet1 << (8 * 2) | octet2 << (8) | octet3;
+    const tmrpOctet = (octet1 << (8 * 2)) | (octet2 << (8)) | (octet3);
 
     record["021_073_Time of Message Reception of Position"] = tmrpOctet / 128;
 }
@@ -704,7 +704,7 @@ const di075 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet2 = bitArr[currentPos++];
     const octet3 = bitArr[currentPos++];
 
-    const ttiOctet = octet1 << (8 * 2) | octet2 << (8) | octet3;
+    const ttiOctet = (octet1 << (8 * 2)) | (octet2 << (8)) | (octet3);
 
     record["021_075_Time of Message Reception of Velocity"] = ttiOctet / 128;
 }
@@ -785,7 +785,7 @@ const di080 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet2 = bitArr[currentPos++];
     const octet3 = bitArr[currentPos++];
 
-    const taOctet = octet1 << (8 * 2) | octet2 << (8) | octet3;
+    const taOctet = (octet1 << (8 * 2)) | (octet2 << 8) | octet3;
 
     record["021_080_Target Address"] = taOctet.toString(16).toUpperCase().padStart(6, '0');
 };
@@ -932,7 +932,7 @@ const di110TID = (record: Record, bitArr: Uint8Array, currentPos: number) => {
         const octet3 = bitArr[currentPos++];
         const octet4 = bitArr[currentPos++];
 
-        const altOctet = octet3 << (8) | octet4;
+        const altOctet = (octet3 << (8)) | octet4;
 
         const alt = twosCompliment(altOctet, 16) * 10;
 
@@ -1063,13 +1063,13 @@ const di130 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet2 = bitArr[currentPos++];
     const octet3 = bitArr[currentPos++];
 
-    const latOctet = octet1 << (8 * 2) | octet2 << (8) | octet3;
+    const latOctet = (octet1 << (8 * 2)) | (octet2 << 8) | octet3;
 
     const octet4 = bitArr[currentPos++];
     const octet5 = bitArr[currentPos++];
     const octet6 = bitArr[currentPos++];
 
-    const lonOctet = octet4 << (8 * 2) | octet5 << (8) | octet6;
+    const lonOctet = (octet4 << (8 * 2)) | (octet5 << 8) | octet6;
 
     const lat = twosCompliment(latOctet, 24) * 180.0 / (1 << 23);
     const lon = twosCompliment(lonOctet, 24) * 180.0 / (1 << 23);
@@ -1093,14 +1093,14 @@ const di131 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet3 = bitArr[currentPos++];
     const octet4 = bitArr[currentPos++];
 
-    const latOctet = octet1 << (8 * 3) | octet2 << (8 * 2) | octet3 << (8) | octet4;
+    const latOctet = (octet1 << (8 * 3)) | (octet2 << (8 * 2)) | (octet3 << 8) | octet4;
 
     const octet5 = bitArr[currentPos++];
     const octet6 = bitArr[currentPos++];
     const octet7 = bitArr[currentPos++];
     const octet8 = bitArr[currentPos++];
 
-    const lonOctet = octet5 << (8 * 3) | octet6 << (8 * 2) | octet7 << (8) | octet8;
+    const lonOctet = (octet5 << (8 * 3)) | (octet6 << (8 * 2)) | (octet7 << 8) | octet8;
 
     const lat = twosCompliment(latOctet, 32) * 180.0 / (1 << 30);
     const lon = twosCompliment(lonOctet, 32) * 180.0 / (1 << 30);
@@ -1162,7 +1162,7 @@ const di145 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet1 = bitArr[currentPos++];
     const octet2 = bitArr[currentPos++];
 
-    const flOctet = octet1 << (8) | octet2;
+    const flOctet = (octet1 << 8) | octet2;
 
     const fl = twosCompliment(flOctet, 16) * 0.25;
 
@@ -1277,7 +1277,7 @@ const di150 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
 
     const octet2 = bitArr[currentPos++];
 
-    const asOctet = asFrontOctet << (8) | octet2;
+    const asOctet = (asFrontOctet << 8) | octet2;
 
     if ((octet1 & (1 << 7)) === 0) {
         record["021_150_IM"] = "Air Speed = IAS (1)";
@@ -1328,7 +1328,7 @@ const di152 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet1 = bitArr[currentPos++];
     const octet2 = bitArr[currentPos++];
     
-    const mhOctet = octet1 << (8) | octet2;
+    const mhOctet = (octet1 << 8) | octet2;
 
     const mh = (mhOctet * 360.0) / (1 << 16);
 
@@ -1424,7 +1424,7 @@ const di160 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet3 = bitArr[currentPos++];
     const octet4 = bitArr[currentPos++];
 
-    const taOctet = octet3 << (8) | octet4;
+    const taOctet = (octet3 << 8) | octet4;
 
     const ta = (taOctet * 360) / (1 << 16);
 
@@ -1441,12 +1441,12 @@ const di160 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
  */
 const di161 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
     const octet1 = bitArr[currentPos++];
-    
+
     const tnFrontOctet = octetOfRange(octet1, 3, 0, 3);
 
     const octet2 = bitArr[currentPos++];
 
-    const tnOctet = tnFrontOctet << (8) | octet2;
+    const tnOctet = (tnFrontOctet << 8) | octet2;
 
     record["021_161_TRACK NUMBER"] = tnOctet;
 }
@@ -1751,7 +1751,8 @@ const di250 = (record: Record, bitArr: Uint8Array, currentPos: number) => {
         const octet7 = bitArr[currentPos++];
         const octet8 = bitArr[currentPos++];
 
-        const mbOctet = (octet2 << (8 * 6)) | (octet3 << (8 * 5)) | 
+        const mbOctet = 
+        (octet2 << (8 * 6)) | (octet3 << (8 * 5)) | 
         (octet4 << (8 * 4)) | (octet5 << (8 * 3)) | 
         (octet6 << (8 * 2)) | (octet7 << 8) | octet8;
 
